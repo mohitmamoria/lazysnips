@@ -32,10 +32,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+Route::get('/', array('as' => 'new_snippet', 'uses' => 'snippets@index'));
+Route::post('/', 'snippets@index');
+Route::get('(:num)', array('as' => 'show_snippet', 'uses' => 'snippets@show'));
+Route::get('(:num)/fork', array('as' => 'fork_snippet', 'uses' => 'snippets@fork'));
 
 /*
 |--------------------------------------------------------------------------
